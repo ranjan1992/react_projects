@@ -1,4 +1,5 @@
 import React from "react";
+import partyPopper from "../assets/party-popper.jpg";
 
 const AgeTeller = ({ date }) => {
   const timeSince = (date) => {
@@ -17,6 +18,7 @@ const AgeTeller = ({ date }) => {
     <div className="Ageteller">
       <h3>{date}</h3>
       <p>Congrats on {timeSince(date)}!</p>
+      <img src={partyPopper} alt="party-popper" className="partyPopper" />
     </div>
   );
 };

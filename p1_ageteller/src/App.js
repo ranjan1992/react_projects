@@ -7,9 +7,11 @@ import "./App.css";
 const App = () => {
   const [newDate, setNewDate] = useState("");
   const [birthday, setBirthDay] = useState("1992-06-21");
+  const [ageDiv, setAgeDiv] = useState(false);
   const changeBirthDay = () => {
     console.log(newDate);
     setBirthDay(newDate);
+    setAgeDiv(!ageDiv);
   };
   return (
     <>
@@ -20,11 +22,15 @@ const App = () => {
             type="date"
             onChange={(event) => setNewDate(event.target.value)}
           ></Form.Control>
-          {"  "}
+          <br />
           <Button onClick={() => changeBirthDay()}>Submit</Button>
         </Form>
       </div>
-      <AgeTeller date={birthday} />
+      {ageDiv && (
+        <div className="fade-in">
+          <AgeTeller date={birthday} />
+        </div>
+      )}
     </>
   );
 };
